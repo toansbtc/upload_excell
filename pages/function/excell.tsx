@@ -1,6 +1,6 @@
 
 
-export default function excell(array, XLSX, workbook) {
+export default function excell(array, XLSX: typeof import('xlsx'), workbook) {
     const newWorkSheet = XLSX.utils.aoa_to_sheet(array)
 
 
