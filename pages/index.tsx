@@ -1,6 +1,6 @@
 import { Button } from 'bootstrap';
 import React, { useState } from 'react'
-import excell from './function/excell';
+// import excell from './function/excell';
 // import * as XLSX from 'xlsx'
 
 let XLSX: typeof import('xlsx') | undefined = undefined;
@@ -193,7 +193,21 @@ export default function index() {
         // console.log(custom_data_array_sheet1)
 
         //insert data in excell
-        excell(data_Array_Resuilt, XLSX, workbook)
+        // excell(data_Array_Resuilt, XLSX, workbook)
+
+
+
+        const newWorkSheet = XLSX.utils.aoa_to_sheet(data_Array_Resuilt)
+        XLSX.utils.book_append_sheet(workbook, newWorkSheet, 'Resuilt')
+        const workbookBlob = new Blob([XLSX.write(workbook, { bookType: 'xlsx', type: 'array' })], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+
+        const url = URL.createObjectURL(workbookBlob)
+        const link = document.createElement('a')
+        link.href = url
+        link.download = 'excell.xlsx'
+        document.body.appendChild(link)
+        link.click();
+        document.body.removeChild(link)
 
 
       };
