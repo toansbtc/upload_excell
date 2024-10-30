@@ -1,6 +1,12 @@
 import { WorkBook } from 'xlsx';
 
 export default function excell(array, XLSX: typeof import('xlsx'), workbook: WorkBook) {
+
+
+
+    if (!XLSX || !XLSX.utils) {
+        throw new Error('XLSX is not defined or utils is not available.');
+    }
     const newWorkSheet = XLSX.utils.aoa_to_sheet(array)
 
 
