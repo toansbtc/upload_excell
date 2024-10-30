@@ -1,11 +1,14 @@
 import { WorkBook } from 'xlsx';
 
-export default function excell(array, XLSX: typeof import('xlsx'), workbook: WorkBook) {
+export default async function excell(array, XLSXs: typeof import('xlsx'), workbook: WorkBook) {
 
 
+
+
+    const XLSX = await import('xlsx');
 
     if (!XLSX || !XLSX.utils) {
-        throw new Error('XLSX is not defined or utils is not available.');
+        throw new Error('Failed to import XLSX or utils is not available.');
     }
     const newWorkSheet = XLSX.utils.aoa_to_sheet(array)
 
