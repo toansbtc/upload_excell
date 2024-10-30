@@ -1,7 +1,13 @@
 import { Button } from 'bootstrap';
 import React, { useState } from 'react'
-import * as XLSX from 'xlsx'
 import excell from './function/excell';
+
+let XLSX: any;
+
+if (typeof window !== 'undefined') {
+  XLSX = require('xlsx');
+}
+// import * as XLSX from 'xlsx'
 
 export default function index() {
   const [file, setfile] = useState<File | null>(null);
