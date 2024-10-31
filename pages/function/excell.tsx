@@ -1,6 +1,7 @@
 // import { useEffect, useState } from 'react';
 // import { WorkBook } from 'xlsx';
 
+export default async function excell() { }
 // export default async function excell(array, XLSXs: typeof import('xlsx'), workbook: WorkBook) {
 
 
