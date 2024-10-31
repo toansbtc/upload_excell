@@ -209,17 +209,21 @@ export default function index() {
         link.click();
         document.body.removeChild(link)
 
-
       };
       reader.readAsArrayBuffer(file);
     }
   }
   return (
-    <div className='container-fluid'>
-      <form className='form-control'>
+    <div className="d-flex align-items-center justify-content-center">
+      <div className='text-center row mt-5'>
         <input type='file' onChange={getFile} accept=".xls,.xlsx" />
-      </form>
-      <button onClick={transform}>chuyen doi</button>
+        <button onClick={transform} className='btn btn-primary mt-3'>Upload</button>
+      </div>
     </div>
+
+
+
+
+
   )
 }
