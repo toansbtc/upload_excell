@@ -25,7 +25,7 @@ export default function index() {
     if (file) {
       const reader = new FileReader();
       if (XLSX)
-        reader.onload = (e) => {
+        reader.onload = async (e) => {
           const data = new Uint8Array(e.target.result as ArrayBuffer);
           const workbook = XLSX.read(data, { type: 'buffer' });
           const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
@@ -195,7 +195,7 @@ export default function index() {
           // console.log(custom_data_array_sheet1)
 
           //insert data in excell
-          excell(data_Array_Resuilt, XLSX, workbook)
+          await excell(data_Array_Resuilt, XLSX, workbook)
 
 
 
