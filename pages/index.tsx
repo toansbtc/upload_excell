@@ -1,6 +1,6 @@
 import { Button } from 'bootstrap';
 import React, { useEffect, useState } from 'react'
-// import excell from './function/excell';
+import excell from './function/excell';
 // import * as XLSX from 'xlsx'
 
 let XLSX: typeof import('xlsx') | undefined = undefined;
@@ -195,7 +195,7 @@ export default function index() {
           // console.log(custom_data_array_sheet1)
 
           //insert data in excell
-          // await excell(data_Array_Resuilt, XLSX, workbook)
+          await excell(data_Array_Resuilt, XLSX, workbook)
 
 
 
